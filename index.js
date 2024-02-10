@@ -1,11 +1,5 @@
 const { Client } = require('whatsapp-web.js');
-const client = new Client({
-	puppeteer: {
-		args: ['--no-sandbox','--disable-setuid-sandbox'],
-		headless: true,
-  		args: ['--enable-gpu'],
-	}
-});
+const client = new Client();
 
 client.on('qr', (qr) => {
     console.log('QR RECEIVED', qr);
