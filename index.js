@@ -1,5 +1,9 @@
-const { Client } = require('whatsapp-web.js');
-const client = new Client();
+const { Client, LocalAuth } = require('whatsapp-web.js');
+
+const client = new Client({
+    puppeteer: { headless: false }, 
+    authStrategy: new LocalAuth()
+});
 
 client.on('qr', (qr) => {
     console.log('QR RECEIVED', qr);
